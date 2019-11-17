@@ -1,0 +1,36 @@
+
+.inst-wrapper {
+    width: 100%;
+
+    .inst-container {
+        padding: 0 .5rem;
+
+        .inst-list__head,
+        .inst-list__body {
+            display: grid;
+            grid-template-areas: 
+            'name projects partners rate compare ';
+            grid-template-columns: 1fr 1fr 1fr 1fr 100px;
+            grid-gap: .5rem;
+            grid-auto-rows: 4rem;
+            justify-items: start;
+            width: calc(100% - 1rem);
+            padding: 0 1rem;
+            border-bottom: thin solid #fbfbfb;
+            background-color: #fbfbfb;   
+
+            div {
+                padding: 0 1rem;
+                i {
+                    cursor: pointer;
+                    padding-left: 1rem;
+                }
+            }
+            
+        }
+        .inst-list__head {
+            margin-bottom: .5rem;
+        }
+    }
+}
+
