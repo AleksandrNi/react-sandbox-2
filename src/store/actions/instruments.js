@@ -1,9 +1,10 @@
 import * as types from './actionTypes'
 import Axios from 'axios'
 
-const actionCreator = (type, res) => {   
-    console.log();
-    
+const actionCreator = (type, res) => {  
+    console.log(type);
+    console.log(res);
+     
     return {
         type,
         payload: res
@@ -24,5 +25,7 @@ export const getInstrumentsList = (params) => {
 }
 
 export const storeInstrumentsActive = (id) => (dispatch) => {
+    console.log(id);
+    
     dispatch(actionCreator(types.STORE_INSTRUMENTS_ACTIVE, id))
 }

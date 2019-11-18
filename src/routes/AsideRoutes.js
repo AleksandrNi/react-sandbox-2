@@ -6,7 +6,7 @@ import {
     } from "react-router-dom";
 
 import Instruments from 'components/instruments/Instruments.jsx'
-import {Favorites} from 'components/favorites/Favorites.jsx'
+import Favorites from 'components/favorites/Favorites.jsx'
 
 import {Common} from 'components/common/Common.jsx'
 

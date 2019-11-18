@@ -3,19 +3,19 @@ import 'components/instruments/Instruments.scss'
 import { connect } from 'react-redux';
 import {getInstrumentsList, storeInstrumentsActive} from 'store/actions/instruments'
 
-
 const Instruments = (props) => {
     const {getInstrumentsList, storeInstrumentsActive, instruments} = props;
     console.log('props');
     console.log(props);
     
     useEffect(()=> {
-        getInstrumentsList()
-    },[getInstrumentsList])
+        if(!instruments) getInstrumentsList()
+    },[])
     
     const setActiveItem = (id) => {
         storeInstrumentsActive(id)
     } 
+    
     return(
         <div className='inst-wrapper'>
             <div className='inst-container'>
@@ -55,11 +55,6 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Instruments)
 
 const InstList = ({getInstrumentsList, instruments, setActiveItem}) => {
-    console.log(instruments);
-    console.log(getInstrumentsList);
-    console.log(setActiveItem);
-    
-    
     
     // code: "bitrix"
     // firstLettersOfName: "1С"
@@ -80,9 +75,9 @@ const InstList = ({getInstrumentsList, instruments, setActiveItem}) => {
                     <div className='inst-list__body'
                     key={inst.id}
                     >
-                        <div><p>{inst.title}</p></div>
-                        <div><p>{inst.worksCount}</p></div>
-                        <div><p>{inst.partnersCount}</p></div>
+                        <div><img src={inst.image} alt=""/><p>{inst.title}</p></div>
+                        <div><p>{inst.worksCount} projects</p></div>
+                        <div><p>{inst.partnersCount} partners</p></div>
                         <div><p>{inst.rate}</p></div>
                         <div><p><i 
                         onClick={()=>setActiveItem(inst.id)}

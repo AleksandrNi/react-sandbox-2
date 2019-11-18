@@ -19,10 +19,14 @@ const expandInstrumentsParams = (state, action) => {
                 inst.active = false;
             } else {
                 inst.active = true;
+                selectedInstruments.push(inst.id)
             }
         }
         return inst
     })
+    console.log('selectedInstruments');
+    console.log(selectedInstruments);
+    
     
     return updateState(state, { 
         instruments: expandedPayload,
@@ -32,15 +36,27 @@ const expandInstrumentsParams = (state, action) => {
 
 const changeInstrumentActiveParams = (state, action) => {
 
+    console.log('===========');
+    console.log('state');
+    console.log(state);
+    console.log('ACTION');
+    console.log(action);
+    console.log('===========');
     
     const localStorageActiveItems = JSON.parse(localStorage.getItem('activeInstruments'));
+    console.log('localStorageActiveItems');
+    console.log(localStorageActiveItems);
+
     const instruments = [...state.instruments]
     const selectedInstrumentIndex = instruments.findIndex(inst=>inst.id === action.payload)
+
+    console.log('selectedInstrumentIndex');
+    console.log(selectedInstrumentIndex);
 
 
     let selectedInstruments = localStorageActiveItems || [];
     instruments[selectedInstrumentIndex].active = !instruments[selectedInstrumentIndex].active
-
+    
     if (!instruments[selectedInstrumentIndex].active) {
         selectedInstruments = [...state.selectedInstruments].filter(id => id !== action.payload)
     } else {
