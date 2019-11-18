@@ -4,15 +4,11 @@ import 'App.scss';
 import { Provider } from 'react-redux'
 import { store } from 'store/store'
 
-import {Aside} from 'components/Aside/Aside.jsx'
+import Aside from 'components/Aside/Aside.jsx'
 import {RoutesList} from 'routes/AsideRoutes'
 import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
-    console.log('==========');
-    console.log('store');
-    console.log(store);
-    console.log('==========');
     
   return (
     <div className="App">
